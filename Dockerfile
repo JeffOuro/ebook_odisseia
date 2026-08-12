@@ -9,19 +9,14 @@ RUN npm run build
 # Stage 2: Production PHP + Nginx environment
 FROM php:8.3-fpm-alpine
 
-# Install php-extension-installer for fast pre-compiled extension installation
-COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
-
-# Install system utilities and PHP extensions via pre-compiled binaries
+# Install Nginx, Supervisor, and basic system utilities
 RUN apk add --no-cache \
     nginx \
     supervisor \
     curl \
     zip \
     unzip \
-    sqlite \
-    sqlite-dev \
-    && install-php-extensions pdo pdo_sqlite mbstring gd bcmath intl opcache
+    sqlite
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
