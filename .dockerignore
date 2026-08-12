@@ -1,0 +1,8 @@
+node_modules
+vendor
+.git
+.env
+storage/*.key
+public/storage
+public/build
+scratch
