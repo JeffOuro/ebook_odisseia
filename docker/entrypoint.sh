@@ -17,6 +17,8 @@ if [ -z "$APP_KEY" ]; then
 fi
 
 # Ensure reliable production environment variables
+export APP_URL="https://ebook.odisseiafilosofica.com.br"
+export ASSET_URL="https://ebook.odisseiafilosofica.com.br"
 export DB_CONNECTION=sqlite
 export DB_DATABASE=/var/www/html/database/database.sqlite
 export SESSION_DRIVER=file
