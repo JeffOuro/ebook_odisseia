@@ -7,7 +7,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Production PHP + Nginx environment
-FROM php:8.3-fpm-alpine
+FROM php:8.4-fpm-alpine
 
 # Install Nginx, Supervisor, and basic system utilities
 RUN apk add --no-cache \
