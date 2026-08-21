@@ -30,14 +30,13 @@ export QUEUE_CONNECTION=sync
 # Run migrations safely
 php artisan migrate --force || true
 
-# Clear and Cache Laravel configs, routes & views
+# Clear previous caches
 php artisan config:clear || true
 php artisan route:clear || true
 php artisan view:clear || true
 
+# Cache config safely
 php artisan config:cache || true
-php artisan route:cache || true
-php artisan view:cache || true
 
 # Start Supervisor (which manages Nginx and PHP-FPM)
 exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
