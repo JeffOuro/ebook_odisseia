@@ -11,12 +11,14 @@ fi
 chown -R www-data:www-data /var/www/html/database /var/www/html/storage /var/www/html/bootstrap/cache
 chmod -R 777 /var/www/html/database /var/www/html/database/database.sqlite /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Fallback APP_KEY if not passed in environment
-if [ -z "$APP_KEY" ]; then
+# Ensure APP_KEY is set
+if [ -z "$APP_KEY" ] || [ "$APP_KEY" = "" ]; then
     export APP_KEY="base64:TLD6c7i30T7QY45RGOs6rXR1u2p99urzGnDz+dJwZNw="
 fi
 
 # Ensure reliable production environment variables
+export APP_ENV=production
+export APP_DEBUG=false
 export APP_URL="https://ebook.odisseiafilosofica.com.br"
 export ASSET_URL="https://ebook.odisseiafilosofica.com.br"
 export DB_CONNECTION=sqlite
@@ -28,8 +30,11 @@ export QUEUE_CONNECTION=sync
 # Run migrations safely
 php artisan migrate --force || true
 
-# Cache Laravel configs, routes & views for maximum performance
+# Clear and Cache Laravel configs, routes & views
 php artisan config:clear || true
+php artisan route:clear || true
+php artisan view:clear || true
+
 php artisan config:cache || true
 php artisan route:cache || true
 php artisan view:cache || true
