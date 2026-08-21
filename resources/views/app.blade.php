@@ -44,17 +44,17 @@
     <!-- Structured Data (JSON-LD) for Search Engines -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org/",
-      "@type": "Book",
+      "@@context": "https://schema.org/",
+      "@@type": "Book",
       "name": "Primeiros Passos no Estudo da Filosofia",
       "author": {
-        "@type": "Organization",
+        "@@type": "Organization",
         "name": "Odisseia Filosófica"
       },
       "description": "Um mapa de navegação intelectual seguro para quem deseja começar a estudar filosofia com método, clareza e autonomia.",
       "inLanguage": "pt-BR",
       "offers": {
-        "@type": "Offer",
+        "@@type": "Offer",
         "price": "27.00",
         "priceCurrency": "BRL",
         "availability": "https://schema.org/InStock",

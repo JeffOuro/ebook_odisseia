@@ -18,7 +18,7 @@ fi
 
 # Ensure reliable production environment variables
 export APP_ENV=production
-export APP_DEBUG=true
+export APP_DEBUG=false
 export APP_URL="https://ebook.odisseiafilosofica.com.br"
 export ASSET_URL="https://ebook.odisseiafilosofica.com.br"
 export DB_CONNECTION=sqlite
