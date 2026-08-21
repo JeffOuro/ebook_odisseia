@@ -414,6 +414,8 @@ const faqs = [
                   src="/images/ebook-cover.jpeg"
                   @error="handleCoverImgError" 
                   alt="E-book Primeiros Passos no Estudo da Filosofia" 
+                  fetchpriority="high"
+                  decoding="async"
                   class="w-full h-auto rounded-xl object-cover shadow-inner"
                 />
               </div>
@@ -730,6 +732,8 @@ const faqs = [
                 src="/images/author-avatar.jpeg"
                 @error="handleAuthorImgError"
                 alt="Jefferson Alves da Silva" 
+                loading="lazy"
+                decoding="async"
                 class="w-full h-full object-cover rounded-full"
               />
             </div>
